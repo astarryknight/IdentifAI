@@ -20,6 +20,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
+import { unstable_renderSubtreeIntoContainer } from 'react-dom'
 
 
 function ImageCarousel({ images, setImages }) {
@@ -38,12 +39,12 @@ function ImageCarousel({ images, setImages }) {
                 <Card>
                   <CardContent className="flex aspect-square items-center justify-center p-6">
                     <div className="flex flex-col h-[100%] w-[100%]">
-                      <img className="grow content-center" src={images[index]} />
+                      <img className="grow content-center" src={images[index][0]} />
                       <Button className="w-[100%] mt-[1rem]" onClick={() => {
                         let a = [...images]
                         a.splice(index, 1)
                         setImages(a)
-                      }}>Delete</Button>
+                      }}>Deletef</Button>
                     </div>
                   </CardContent>
                 </Card>
@@ -60,16 +61,10 @@ function ImageCarousel({ images, setImages }) {
 }
 
 function Page({ page, images, setImages, responses, setResponses }) {
-
-  console.log(images)
   function handleChange(e) {
-
-    console.log(e)
     let inp = e.target
     let f = inp.files[0];
     loadImage(f)
-
-    console.log("hi")
     let a = [...images];
     setImages(a)
   }
@@ -83,7 +78,6 @@ function Page({ page, images, setImages, responses, setResponses }) {
     img = document.getElementById('img')
     img.style.width = "1px";
     img.style.height = "1px"; //bc it needs to exist but it can be small so yeah
-    console.log(img)
 
     if (!f.type.startsWith('image/'))
       return log('that\'s not an image! ignoring...');
@@ -94,7 +88,8 @@ function Page({ page, images, setImages, responses, setResponses }) {
       log('img loaded!');
 
       // render the image on an OffscreenCanvas to convert to JPEG, then display in the image element
-      let c = new OffscreenCanvas(img.width, img.height);
+      console.log(img.naturalWidth, img.naturalHeight)
+      let c = new OffscreenCanvas(img.naturalWidth, img.naturalHeight);
       let ctx = c.getContext('2d');
       ctx.drawImage(img, 0, 0);
       c.convertToBlob({
@@ -103,6 +98,10 @@ function Page({ page, images, setImages, responses, setResponses }) {
       }).then(b => {
         let u = URL.createObjectURL(b);
         log('\nrendered img as jpeg!\nBlob URL:', u);
+        let l = [...images]
+        l.push([u, b])
+        setImages(l)
+
         img.src = u;
         img.style.width = "0px";
         img.style.height = "0px";
@@ -116,8 +115,6 @@ function Page({ page, images, setImages, responses, setResponses }) {
       log('loading error!');
     }
     img.src = u
-    images.push(u);
-    console.log(u);
   }
 
   if (page == 0) {
@@ -157,6 +154,26 @@ function App() {
   const [page, setPage] = useState(0)
   const [responses, setResponses] = useState(["", ""])
 
+  async function readAsDataURL(file) {
+    const reader = new FileReader();
+
+    return new Promise((resolve, reject) => {
+      reader.addEventListener(
+        "load",
+        () => {
+          // convert image file to base64 string
+          //console.log(reader.result)
+          resolve(reader.result)
+        },
+        false,
+      );
+
+      if (file) {
+        reader.readAsDataURL(file);
+      }
+    })
+  }
+
   return (
     <>
       <img id="img"></img>
@@ -165,25 +182,26 @@ function App() {
       <div className="w-[100%] flex mt-[1rem]">
         <Button disabled={page == 0 ? true : false} className="grow mr-[0.5rem]" onClick={() => {
           //(page == 1) && setPage(0)
-          console.log("hi")
           if (page == 1) {
             setPage(0)
           }
         }}>Back</Button>
-        <Button disabled={images.length > 0 ? false : true} className="grow" onClick={() => {
+        <Button disabled={images.length > 0 ? false : true} className="grow" onClick={async () => {
           if (page == 0) {
             setPage(1)
           } else {
             let l = [...images]
             let r = []
-            for (i in l) {
-              r.push(i)
+            for (let i of l) {
+              let file = i[1]
+              r.push(await readAsDataURL(file))
             }
             let object = {
               "name": responses[0],
               "id": responses[1],
-              "images": images
+              "images": r
             }
+            console.log(object)
           }
         }}>{page == 0 ? "Next" : "Submit"}</Button>
       </div >
