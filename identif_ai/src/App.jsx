@@ -39,12 +39,12 @@ function ImageCarousel({ images, setImages }) {
                 <Card>
                   <CardContent className="flex aspect-square items-center justify-center p-6">
                     <div className="flex flex-col h-[100%] w-[100%]">
-                      <img className="grow content-center" src={images[index][0]} />
+                      <img className="grow content-center max-h-[87%]" src={images[index][0]} />
                       <Button className="w-[100%] mt-[1rem]" onClick={() => {
                         let a = [...images]
                         a.splice(index, 1)
                         setImages(a)
-                      }}>Deletef</Button>
+                      }}>Delete</Button>
                     </div>
                   </CardContent>
                 </Card>
@@ -74,8 +74,7 @@ function Page({ page, images, setImages, responses, setResponses }) {
   }
 
   function loadImage(f) {
-
-    img = document.getElementById('img')
+    let img = document.getElementById('img')
     img.style.width = "1px";
     img.style.height = "1px"; //bc it needs to exist but it can be small so yeah
 
@@ -119,7 +118,7 @@ function Page({ page, images, setImages, responses, setResponses }) {
 
   if (page == 0) {
     return (
-      <div className='flex w-[30rem] flex-col justify-center items-center'>
+      <div className='flex w-[16rem] lg:w-[30rem] flex-col justify-center items-center'>
         <div className='flex w-[100%] mb-[1rem]'>
           <div className="flex flex-col items-start justify-start gap-1.5 w-[100%]">
             <Input onChange={handleChange} id="picture" type="file" className="flex h-[10rem] w-[100%] items-center justify-center rounded-md border border-dashed text-sm" />
@@ -130,7 +129,7 @@ function Page({ page, images, setImages, responses, setResponses }) {
     )
   } else {
     return (
-      <div className='flex w-[30rem] flex-col justify-center items-center'>
+      <div className='flex w-[20rem] lg:w-[30rem] flex-col justify-center items-center'>
         <Label className="flex flex-row justify-start w-[100%]">Name&nbsp;<span className="text-red-600">*</span></Label>
         <Input id="name" className="mb-[1rem]" placeholder="John Doe" onChange={() => {
           let l = [...responses];
@@ -163,7 +162,7 @@ function App() {
         () => {
           // convert image file to base64 string
           //console.log(reader.result)
-          resolve(reader.result)
+          resolve(reader.result.split(",")[1])
         },
         false,
       );
@@ -172,6 +171,18 @@ function App() {
         reader.readAsDataURL(file);
       }
     })
+  }
+
+  async function sendData(data) {
+    let url = 'http://127.0.0.1:5000/upload'
+    const response = await fetch(url, {
+      method: "POST",
+      body: JSON.stringify(data),
+      headers: {
+        "Content-Type": "application/json",
+      }
+    })
+    console.log(response);
   }
 
   return (
@@ -201,7 +212,7 @@ function App() {
               "id": responses[1],
               "images": r
             }
-            console.log(object)
+            await sendData(object);
           }
         }}>{page == 0 ? "Next" : "Submit"}</Button>
       </div >

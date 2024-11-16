@@ -61,6 +61,12 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
+@media(max-width: 600px) {
+  :root {
+    margin: 0
+  }
+}
+
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
@@ -104,6 +110,7 @@ button:focus-visible {
     --chart-5: 27 87% 67%;
     --radius: 0.5rem;
   }
+
   .dark {
     --background: 240 10% 3.9%;
     --foreground: 0 0% 98%;
@@ -136,6 +143,7 @@ button:focus-visible {
   * {
     @apply border-border;
   }
+
   body {
     @apply bg-background text-foreground;
   }
