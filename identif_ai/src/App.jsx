@@ -187,6 +187,7 @@ function App() {
 
   return (
     <>
+      <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl">Identif<span className="text-sky-700">AI</span></h1>
       <img id="img"></img>
       <h1 className="flex scroll-m-20 pb-2 text-3xl font-semibold tracking-tight first:mt-0">{page == 0 ? "1. Upload Pictures" : "2. Personal Information"}</h1>
       <Page page={page} images={images} setImages={setImages} responses={responses} setResponses={setResponses} />
