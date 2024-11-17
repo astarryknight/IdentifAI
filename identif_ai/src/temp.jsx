@@ -55,27 +55,27 @@ export default function Temp() {
     return (
         <>
             <div className="h-[100vh] flex flex-col justify-center">
-                <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-7xl">Identif<span className="text-transparent bg-gradient-to-tr from-blue-800 to-pink-400 bg-clip-text">AI</span></h1>
+                <h1 className="scroll-m-20 text-6xl font-extrabold tracking-tight lg:text-7xl">Identif<span className="text-transparent bg-gradient-to-tr from-blue-800 to-pink-400 bg-clip-text">AI</span></h1>
                 <h3 className="scroll-m-20 text-2xl text-muted-foreground font-semibold tracking-tight">Face the future of student ID</h3>
                 <div className="flex flex-row mt-[2rem] justify-center">
                     <Button className="mr-[0.5rem]">Try it out</Button>
                     <Button variant="secondary" className="">Learn More</Button>
                 </div>
             </div>
-            <div className="h-[fit-content] py-[5rem] px-[2rem] w-[100%] bg-slate-100">
-                <div className='flex flex-row h-[100%]'>
-                    <div className="text-left p-[2rem] flex flex-col w-[50%] h-[100%] justify-center">
+            <div className="h-[fit-content] py-[1.5rem] lg:py-[8rem] px-[1rem] lg:px-[5rem] w-[100%] bg-slate-100">
+                <div className='flex flex-col lg:flex-row h-[100%]'>
+                    <div className="text-left p-[2rem] flex flex-col w-[100%] lg:w-[50%] h-[100%] justify-center">
                         <h2 className="scroll-m-20 pb-2 text-3xl font-semibold tracking-tight first:mt-0">Effortless access for students, powered by advanced AI.</h2>
                         <p>IdentifAI combines advanced AI with streamlined technology to make campus access effortless. Using an ESP32 camera and Python-powered scripts with OpenCV and face_recognition libraries, the system processes video feeds to recognize students instantly. By uploading their name, ID, and photo through a secure web portal, students are seamlessly added to the network, ensuring smooth, card-free identification across campus.</p>
                     </div>
-                    <div className="flex flex-col w-[50%] h-[100%] justify-center items-center">
+                    <div className="flex flex-col w-[100%] lg:w-[50%] h-[100%] justify-center items-center">
                         <img className="w-[40rem]" src={facialrec}></img>
                     </div>
                 </div>
             </div>
-            <div className="h-[fit-content] py-[5rem] px-[2rem] w-[100%] bg-white">
-                <div className='flex flex-row h-[100%]'>
-                    <div className="flex flex-col w-[50%] h-[100%] justify-center items-center">
+            <div className="h-[fit-content] py-[1.5rem] lg:py-[8rem] px-[1rem] lg:px-[5rem] w-[100%] bg-white">
+                <div className='flex flex-col-reverse lg:flex-row w-[100%] h-[100%]'>
+                    <div className="flex flex-col w-[100%] lg:w-[50%] h-[100%] justify-center items-center">
                         <Card>
                             <CardHeader>
                                 <CardTitle>Usefulness of IdentifAI</CardTitle>
@@ -124,9 +124,17 @@ export default function Temp() {
                             </CardFooter>
                         </Card>
                     </div>
-                    <div className="text-left p-[2rem] flex flex-col w-[50%] h-[100%] justify-center">
-                        <h2 className="scroll-m-20 pb-2 text-3xl font-semibold tracking-tight first:mt-0">Designed with Students in Mind</h2>
+                    <div className="text-left p-[2rem] flex flex-col w-[100%] lg:w-[50%] h-[100%] justify-center">
+                        <h2 className="scroll-m-20 pb-2 text-3xl font-semibold tracking-tight first:mt-0">Designed with Students in Mind.</h2>
                         <p>IdentifAI was born from student feedback highlighting the frustrations of traditional ID verification methods. Many found carrying and scanning ID cards to be inconvenient and time-consuming, especially during busy campus hours. By introducing a hands-free, cutting-edge solution, this project aims to simplify daily routines and enhance the overall campus experience with effortless and innovative technology.</p>
+                    </div>
+                </div>
+            </div>
+            <div className="h-[fit-content] py-[1.5rem] lg:py-[8rem] px-[1rem] lg:px-[5rem] w-[100%] bg-slate-100">
+                <div className='flex flex-col justify-center align-center items-center h-[100%]'>
+                    <div className="text-center p-[2rem] flex flex-col w-[70%] h-[100%] justify-center">
+                        <h2 className="scroll-m-20 pb-2 text-3xl font-semibold font-serif tracking-tight first:mt-0">“IdentifAI has been a game-changer for me! Getting into my dorm used to be a hassle, especially when my hands were full or I couldn’t find my ID card. Now, I just walk up to the camera, and I’m in—no stress, no delays. It’s made my campus life so much easier!”</h2>
+                        <p>— Alex R., Sophomore</p>
                     </div>
                 </div>
             </div>
