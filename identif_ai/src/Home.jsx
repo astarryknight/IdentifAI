@@ -30,8 +30,9 @@ import {
     ChartTooltip,
     ChartTooltipContent,
 } from "@/components/ui/chart"
-
 import { Link, useNavigate, useSearchParams } from 'react-router-dom';
+import { useRef } from 'react';
+
 
 export default function Home() {
 
@@ -59,7 +60,7 @@ export default function Home() {
                 <h3 className="scroll-m-20 text-2xl text-muted-foreground font-semibold tracking-tight">Face the future of student ID</h3>
                 <div className="flex flex-row mt-[2rem] justify-center">
                     <Button className="mr-[0.5rem]" onClick={() => { navigate('/form') }}>Try it out</Button>
-                    <Button variant="secondary" className="">Learn More</Button>
+                    <Button variant="secondary" className="" >Learn More</Button>
                 </div>
             </div>
             <div className="h-[fit-content] w-[100%] bg-gradient-to-b from-slate-100 to-white">
