@@ -22,7 +22,9 @@ import {
     CardTitle,
 } from "@/components/ui/card"
 import { unstable_renderSubtreeIntoContainer } from 'react-dom'
-
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
+import { AlertCircle } from "lucide-react"
+import { Link, useNavigate, useSearchParams } from 'react-router-dom';
 
 function ImageCarousel({ images, setImages }) {
     if (images.length > 0) {
@@ -148,11 +150,27 @@ function Page({ page, images, setImages, responses, setResponses }) {
     }
 }
 
+function Error({ title, description }) {
+    if (title && description) {
+        return (
+            <Alert variant="destructive" className="my-[2rem]">
+                <AlertCircle className="h-4 w-4" />
+                <AlertTitle>{title}</AlertTitle>
+                <AlertDescription>
+                    {description}
+                </AlertDescription>
+            </Alert>
+        )
+    }
+}
+
 export default function Form() {
     const [count, setCount] = useState(0)
     const [images, setImages] = useState([])
     const [page, setPage] = useState(0)
     const [responses, setResponses] = useState(["", ""])
+    const [title, setTitle] = useState("")
+    const [description, setDescription] = useState("")
 
     async function readAsDataURL(file) {
         const reader = new FileReader();
@@ -176,14 +194,19 @@ export default function Form() {
 
     async function sendData(data) {
         let url = 'http://127.0.0.1:5000/upload'
-        const response = await fetch(url, {
-            method: "POST",
-            body: JSON.stringify(data),
-            headers: {
-                "Content-Type": "application/json",
-            }
-        })
-        console.log(response);
+        try {
+            const response = await fetch(url, {
+                method: "POST",
+                body: JSON.stringify(data),
+                headers: {
+                    "Content-Type": "application/json",
+                }
+            })
+            return response.status
+        }
+        catch {
+            return 500
+        }
     }
 
     return (
@@ -215,10 +238,22 @@ export default function Form() {
                                     "id": responses[1],
                                     "images": r
                                 }
-                                await sendData(object);
+                                document.body.style.filter = "blur(3px)"
+                                var response = await sendData(object);
+                                document.body.style.filter = "blur(0px)"
+                                if (response == 200) {
+                                    navigate('/home')
+                                } else if (response == 422) {
+                                    setTitle("Invalid Face")
+                                    setDescription("Please try uploading a different face!")
+                                } else if (response == 500) {
+                                    setTitle("Server Error")
+                                    setDescription("Please try again later!")
+                                }
                             }
                         }}>{page == 0 ? "Next" : "Submit"}</Button>
                     </div >
+                    <Error title={title} description={description} />
                 </div>
             </div>
         </>
