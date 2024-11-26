@@ -66,7 +66,7 @@ export default function Home() {
             <div className="h-[fit-content] w-[100%] bg-gradient-to-b from-slate-100 to-white">
                 <div className='bg-transparent flex flex-col lg:flex-row h-[100%]'>
                     <div className="py-[1.5rem] lg:py-[8rem] px-[1.5rem] lg:px-[3.5rem] text-left flex flex-col w-[100%] lg:w-[50%] h-[100%] justify-center text-black bg-transparent">
-                        <h2 className="scroll-m-20 pb-2 text-3xl lg:[text-5xl] font-semibold tracking-tight first:mt-0">Effortless access for students, powered by advanced AI.</h2>
+                        <h2 className="scroll-m-20 pb-2 text-3xl lg:text-5xl font-semibold tracking-tight first:mt-0">Effortless access for students, powered by advanced AI.</h2>
                         <p className="text-lg">IdentifAI combines advanced AI with streamlined technology to make campus access effortless. Using an ESP32 camera and Python-powered scripts with OpenCV and face_recognition libraries, the system processes video feeds to recognize students instantly. By uploading their name, ID, and photo through a secure web portal, students are seamlessly added to the network, ensuring smooth, card-free identification across campus.</p>
                     </div>
                     <div className="bg-transparent py-[1.5rem] lg:py-[6rem] px-[.5rem] lg:px-[3.5rem] flex flex-col w-[100%] lg:w-[50%] h-[100%] justify-center items-center">
@@ -103,7 +103,7 @@ export default function Home() {
                         </Card>
                     </div>
                     <div className="py-[1.5rem] lg:py-[8rem] px-[1.5rem] lg:px-[5rem] text-left text-black lg:text-black bg-white lg:bg-white p-[2rem] flex flex-col w-[100%] lg:w-[50%] h-[100%] justify-center">
-                        <h2 className="scroll-m-20 pb-2 text-3xl lg:[text-5xl] font-semibold tracking-tight first:mt-0">Designed with Students in Mind.</h2>
+                        <h2 className="scroll-m-20 pb-2 text-3xl lg:text-5xl font-semibold tracking-tight first:mt-0">Designed with Students in Mind.</h2>
                         <p className="text-lg">IdentifAI was born from student feedback highlighting the frustrations of traditional ID verification methods. Many found carrying and scanning ID cards to be inconvenient and time-consuming, especially during busy campus hours. By introducing a hands-free, cutting-edge solution, this project aims to simplify daily routines and enhance the overall campus experience with effortless and innovative technology.</p>
                     </div>
                 </div>
