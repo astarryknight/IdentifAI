@@ -172,6 +172,8 @@ export default function Form() {
     const [title, setTitle] = useState("")
     const [description, setDescription] = useState("")
 
+    const navigate = useNavigate();
+
     async function readAsDataURL(file) {
         const reader = new FileReader();
 
@@ -196,10 +198,12 @@ export default function Form() {
         let url = 'http://127.0.0.1:5000/upload'
         try {
             const response = await fetch(url, {
+                mode: "cors",
                 method: "POST",
                 body: JSON.stringify(data),
                 headers: {
                     "Content-Type": "application/json",
+                    'Access-Control-Allow-Origin': '*'
                 }
             })
             return response.status

@@ -22,6 +22,12 @@ export default function App() {
             }
           ></Route>
           <Route
+            path="/home"
+            element={
+              <Home />
+            }
+          ></Route>
+          <Route
             path="/form"
             element={
               <Form />
