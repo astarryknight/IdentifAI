@@ -39,11 +39,11 @@ export default function Home() {
     const navigate = useNavigate();
 
     const chartData = [
-        { month: "5", participants: 50 },
-        { month: "4", participants: 25, mobile: 200 },
-        { month: "3", participants: 12, mobile: 120 },
-        { month: "2", participants: 3, mobile: 190 },
-        { month: "1", participants: 0, mobile: 130 },
+        { month: "5", participants: 3 },
+        { month: "4", participants: 2 },
+        { month: "3", participants: 2 },
+        { month: "2", participants: 1 },
+        { month: "1", participants: 1 },
     ]
 
     const chartConfig = {
@@ -67,7 +67,7 @@ export default function Home() {
                 <div className='bg-transparent flex flex-col lg:flex-row h-[100%]'>
                     <div className="py-[1.5rem] lg:py-[8rem] px-[1.5rem] lg:px-[3.5rem] text-left flex flex-col w-[100%] lg:w-[50%] h-[100%] justify-center text-black bg-transparent">
                         <h2 className="scroll-m-20 pb-2 text-3xl lg:text-5xl font-semibold tracking-tight first:mt-0">Effortless access for students, powered by advanced AI.</h2>
-                        <p className="text-lg">IdentifAI combines advanced AI with streamlined technology to make campus access effortless. Using an ESP32 camera and Python-powered scripts with OpenCV and face_recognition libraries, the system processes video feeds to recognize students instantly. By uploading their name, ID, and photo through a secure web portal, students are seamlessly added to the network, ensuring smooth, card-free identification across campus.</p>
+                        <p className="text-lg">IdentifAI combines advanced AI with streamlined technology to make campus access effortless. Using an ESP32 camera and Python-powered scripts with OpenCV and face_recognition libraries, the system processes video feeds to recognize students instantly. By uploading their name, ID, and photo through the web portal, students are seamlessly added to the network, ensuring smooth, card-free identification across campus.</p>
                     </div>
                     <div className="bg-transparent py-[1.5rem] lg:py-[6rem] px-[.5rem] lg:px-[3.5rem] flex flex-col w-[100%] lg:w-[50%] h-[100%] justify-center items-center">
                         <img className="w-[40rem]" src={facialrec}></img>
