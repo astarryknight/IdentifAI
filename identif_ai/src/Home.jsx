@@ -14,6 +14,7 @@ import {
 } from "@/components/ui/carousel"
 import "./main.css"
 import facialrec from "./assets/facial_rec.png"
+//import KeyboardArrowLeftIcon from '@mui/icons-material/KeyboardArrowLeft';
 
 //charts
 import { Bar, BarChart, XAxis } from "recharts"
@@ -62,6 +63,7 @@ export default function Home() {
                     <Button className="mr-[0.5rem]" onClick={() => { navigate('/form') }}>Try it out</Button>
                     <Button variant="secondary" className="" >Learn More</Button>
                 </div>
+                <div className="scroll-down text-4xl mb-[10rem]">&gt;</div>
             </div>
             <div className="h-[fit-content] w-[100%] bg-gradient-to-b from-slate-100 to-white">
                 <div className='bg-transparent flex flex-col lg:flex-row h-[100%]'>
@@ -112,8 +114,8 @@ export default function Home() {
             <div className="h-[fit-content] py-[1.5rem] lg:py-[8rem] px-[1rem] lg:px-[5rem] w-[100%] bg-black text-white">
                 <div className='flex flex-col justify-center align-center items-center h-[100%]'>
                     <div className="text-center p-[2rem] flex flex-col w-[100%] lg:w-[80%] h-[100%] justify-center">
-                        <h2 className="scroll-m-20 pb-2 text-xl lg:text-5xl font-semibold font-serif tracking-tight first:mt-0">“IdentifAI has been a game-changer for me! Getting into my dorm used to be a hassle, especially when my hands were full or I couldn’t find my ID card. Now, I just walk up to the camera, and I’m in—no stress, no delays. It’s made my campus life so much easier!”</h2>
-                        <p>— Alex R., Sophomore</p>
+                        <h2 className="scroll-m-20 pb-2 text-xl lg:text-5xl font-semibold font-serif tracking-tight first:mt-0">“IdentifAI will be a game changer for college campuses. Getting into my dorm is a hassle, especially when my hands are full or I can't find my ID card. With IdentifAI, I just walk up to the camera, and I’m in—no stress, no delays. It will make my campus life so much easier!”</h2>
+                        <p>— Aron C., Senior</p>
                     </div>
                 </div>
             </div>
