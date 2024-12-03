@@ -5,6 +5,11 @@
 }
 
 /* scroll down animation*/
+#svg {
+    width: 24px;
+    height: 24px;
+}
+
 .scroll-down {
     position: absolute;
     left: 50%;
