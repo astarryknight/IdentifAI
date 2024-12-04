@@ -71,7 +71,7 @@ export default function Home() {
                 <div className='bg-transparent flex flex-col lg:flex-row h-[100%]'>
                     <div className="py-[1.5rem] lg:py-[8rem] px-[1.5rem] lg:px-[3.5rem] text-left flex flex-col w-[100%] lg:w-[50%] h-[100%] justify-center text-black bg-transparent">
                         <h2 className="scroll-m-20 pb-2 text-3xl lg:text-5xl font-semibold tracking-tight first:mt-0">Effortless access for students, powered by advanced AI.</h2>
-                        <p className="text-lg">IdentifAI combines advanced AI with streamlined technology to make campus access effortless. Using an ESP32 camera and Python-powered scripts with OpenCV and face_recognition libraries, the system processes video feeds to recognize students instantly. By uploading their name, ID, and photo through the web portal, students are seamlessly added to the network, ensuring smooth, card-free identification across campus.</p>
+                        <p className="text-lg">IdentifAI combines AI with technology to allow effortless access to campus. It's powered by an ESP32 camera and Python-powered scripts with OpenCV and face_recognition libraries to processes video feeds to recognize students as they walk up to the camera. Once a student uploads their name, ID, and photo through the web portal, they are automatically added to the database, ensuring smooth, card-free identification.</p>
                     </div>
                     <div className="bg-transparent py-[1.5rem] lg:py-[6rem] px-[.5rem] lg:px-[3.5rem] flex flex-col w-[100%] lg:w-[50%] h-[100%] justify-center items-center">
                         <img className="w-[40rem]" src={facialrec}></img>
@@ -101,7 +101,7 @@ export default function Home() {
                             </CardContent>
                             <CardFooter className="flex-col items-start gap-2 text-sm">
                                 <div className="leading-none text-muted-foreground">
-                                    Data from a random survey of NJIT Students
+                                    Data from a survey of random NJIT Students
                                 </div>
                             </CardFooter>
                         </Card>
