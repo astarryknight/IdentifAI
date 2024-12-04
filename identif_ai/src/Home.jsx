@@ -108,7 +108,10 @@ export default function Home() {
                     </div>
                     <div className="py-[1.5rem] lg:py-[8rem] px-[1.5rem] lg:px-[5rem] text-left text-black lg:text-black bg-white lg:bg-white p-[2rem] flex flex-col w-[100%] lg:w-[50%] h-[100%] justify-center">
                         <h2 className="scroll-m-20 pb-2 text-3xl lg:text-5xl font-semibold tracking-tight first:mt-0">Designed with Students in Mind.</h2>
-                        <p className="text-lg">IdentifAI was born from student feedback highlighting the frustrations of traditional ID verification methods. Many found carrying and scanning ID cards to be inconvenient and time-consuming, especially during busy campus hours. By introducing a hands-free, cutting-edge solution, this project aims to simplify daily routines and enhance the overall campus experience with effortless and innovative technology.</p>
+                        <p className="text-lg">IdentifAI was created based on student feedback which showed the frustrations of traditional ID methods on campus.
+                            Many students were inconvenienced with carrying and scanning ID cards, especially during hours that campus is busy.
+                            By introducing a hands-free solution, this project aims to simplify daily routines and improve the overall campus experience.
+                        </p>
                     </div>
                 </div>
             </div>
